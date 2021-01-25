@@ -77,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8527392829861339790, guid: 6cba016a36314f544a0f87df9601af0e, type: 3}
       propertyPath: m_Name
-      value: Pyramid_NoOffset
+      value: Pyramid_NoOffset Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cba016a36314f544a0f87df9601af0e, type: 3}
