@@ -25,6 +25,8 @@ namespace SplineMesh {
         public Vector3 rotation;
         public Vector3 scale;
 
+        public float startScale = 1;
+
         public float DurationInSecond;
 
         private void OnEnable() {
@@ -53,7 +55,32 @@ namespace SplineMesh {
             Contort();
         }
 
+        private void Update()
+        {
+            rate += Time.deltaTime / DurationInSecond;
+            if (rate > 1)
+            {
+                rate--;
+            }
+            Contort();
+        }
+
         private void Contort() {
+
+            float nodeDistance = 0;
+            int i = 0;
+            foreach (var n in spline.nodes)
+            {
+                float currentPosition = spline.Length * rate;
+               // Debug.Log(currentPosition);
+
+                float nodeScale = startScale;
+
+
+                n.Scale = new Vector2(nodeScale, nodeScale);
+            }
+
+
             if (generated != null) {
                 meshBender.SetInterval(spline, spline.Length * rate);
                 meshBender.ComputeIfNeeded();
