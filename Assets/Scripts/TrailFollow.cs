@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TrailFollow : MonoBehaviour
 {
+    public GameObject PathParent;
     public Transform[] transforms;
     public float smoothTime = 1;
     public int currentIndex = 0;
@@ -13,6 +14,12 @@ public class TrailFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        if(PathParent != null)
+        {
+            transforms = PathParent.GetComponentsInChildren<Transform>();
+        }
+
         StartCoroutine(moveToTransform());
 
     }
