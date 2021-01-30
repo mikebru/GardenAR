@@ -10,6 +10,7 @@ public class TrailFollow : MonoBehaviour
     public int currentIndex = 0;
     private Vector3 velocity = Vector3.zero;
 
+    public bool updateInEditor = true;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,19 @@ public class TrailFollow : MonoBehaviour
 
         StartCoroutine(moveToTransform());
 
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (updateInEditor == true)
+        {
+            if (PathParent != null && transforms.Length > 0)
+            {
+                transforms = PathParent.GetComponentsInChildren<Transform>();
+               // StartCoroutine(moveToTransform());
+
+            }
+        }
     }
 
 
