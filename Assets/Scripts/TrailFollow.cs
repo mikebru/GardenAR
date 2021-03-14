@@ -55,7 +55,8 @@ public class TrailFollow : MonoBehaviour
         }
 
 
-        currentIndex += 1;
+        //currentIndex += 1;
+        currentIndex = Random.Range(0, transforms.Length);
 
         if (currentIndex >= transforms.Length)
         {
